@@ -17,4 +17,8 @@ body, input, textarea, button {
     font: 300 1rem 'Nunito', sans-serif;
     -webkit-font-smoothing: antialiased;
 }
+
+button {
+    cursor: pointer;
+}
 `
