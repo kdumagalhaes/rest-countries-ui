@@ -7,6 +7,7 @@ export const Container = styled.header`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  background-color: ${({ theme }) => theme.element};
 
   .logo {
     font-size: 1.4rem;
