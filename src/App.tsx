@@ -1,14 +1,14 @@
-import { ThemeProvider } from 'styled-components'
-import { darkTheme, lightTheme } from './styles/themes/themes'
-import { GlobalStyles } from './styles/globalStyles'
-import { Header } from './components/Header/Header'
+import { BrowserRouter } from 'react-router-dom'
+import { DefaultLayout } from './layouts/DefaultLayout'
+import { ThemeSelectionProvider } from './context/ThemeContext/ThemeContext'
 
 function App() {
   return (
-    <ThemeProvider theme={lightTheme}>
-      <Header />
-      <GlobalStyles />
-    </ThemeProvider>
+    <ThemeSelectionProvider>
+      <BrowserRouter>
+        <DefaultLayout />
+      </BrowserRouter>
+    </ThemeSelectionProvider>
   )
 }
 
