@@ -19,7 +19,6 @@ export const Container = styled.input<ContainerProps>`
         : `url(${SearchIconDark})`}
     no-repeat 15px;
   background-color: ${({ theme }) => theme.element};
-  margin-left: 4.5rem;
   padding: 0 1rem 0 4rem;
   color: ${({ theme }) => theme.text};
 `
