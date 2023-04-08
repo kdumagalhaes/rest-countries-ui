@@ -1,12 +1,12 @@
 import { BrowserRouter } from 'react-router-dom'
-import { DefaultLayout } from './layouts/DefaultLayout'
 import { ThemeSelectionProvider } from './context/ThemeContext/ThemeContext'
+import { Router } from './routes/Router'
 
 function App() {
   return (
     <ThemeSelectionProvider>
       <BrowserRouter>
-        <DefaultLayout />
+        <Router />
       </BrowserRouter>
     </ThemeSelectionProvider>
   )
