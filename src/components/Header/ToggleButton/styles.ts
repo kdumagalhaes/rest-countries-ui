@@ -5,7 +5,7 @@ export const Container = styled.button`
   background: transparent;
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 0.7rem;
   font-weight: 600;
   color: ${({ theme }) => theme.text};
 
