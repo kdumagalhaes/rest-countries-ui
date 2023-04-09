@@ -5,4 +5,5 @@ export const Row = styled.div`
   display: flex;
   justify-content: space-between;
   padding: 0 4.5rem 0 4.5rem;
+  margin-bottom: 3rem;
 `
