@@ -1,9 +1,8 @@
 import styled from 'styled-components'
 
 export const Container = styled.a`
-  display: block;
-  width: max-content;
   text-decoration: none;
+  height: fit-content;
   color: ${({ theme }) => theme.text};
   background-color: ${({ theme }) => theme.element};
   border-radius: 5px;
@@ -11,14 +10,13 @@ export const Container = styled.a`
   transition: all 0.2s;
 
   &:hover {
-    box-shadow: none;
-    transform: scale(0.99);
+    box-shadow: 0 0 20px 10px rgb(0 0 0 / 0.1);
+    transform: scale(1.03);
   }
 
   .flag {
-    object-fit: cover;
-    max-width: 25rem;
-    max-height: 25rem;
+    width: 100%;
+    object-fit: contain;
     border-top-right-radius: 5px;
     border-top-left-radius: 5px;
     box-shadow: 0px 10px 9px -5px rgb(0 0 0 / 0.1);
