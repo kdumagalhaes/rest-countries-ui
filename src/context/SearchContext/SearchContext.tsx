@@ -1,6 +1,7 @@
 import { ReactNode, createContext, useState } from 'react'
 import { useDebounce } from '../../hooks/useDebounce/useDebounce'
 import useSWR from 'swr'
+import { fetchCountriesList } from '../../utils/fetchCountriesList/fetchCountriesList'
 
 interface SearchProviderProps {
   children: ReactNode
@@ -22,6 +23,7 @@ interface SearchContextModel {
   getSearchTerm: (term: string) => void
   filteredCountriesList: CountryModel[]
   isLoading: boolean
+  error: string
 }
 
 export const SearchContext = createContext({} as SearchContextModel)
@@ -34,17 +36,7 @@ export const SearchProvider = ({ children }: SearchProviderProps) => {
     ? `https://restcountries.com/v3.1/name/${debouncedTerm}`
     : 'https://restcountries.com/v3.1/all'
 
-  const fetchCountriesList = (url: string) => {
-    try {
-      return fetch(url)
-        .then((res) => res.json())
-        .then((data) => data)
-    } catch (error) {
-      console.warn(error)
-    }
-  }
-
-  const { data, isLoading } = useSWR(URL, fetchCountriesList)
+  const { data, isLoading, error } = useSWR(URL, fetchCountriesList)
 
   const getSearchTerm = (term: string) => {
     if (term !== '' || term !== undefined) {
@@ -59,6 +51,7 @@ export const SearchProvider = ({ children }: SearchProviderProps) => {
     getSearchTerm,
     filteredCountriesList,
     isLoading,
+    error,
   }
 
   return (
