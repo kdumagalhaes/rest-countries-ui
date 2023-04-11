@@ -6,4 +6,12 @@ export const Grid = styled.main`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 4rem;
+  position: relative;
+
+  .loader {
+    position: absolute;
+    top: 150%;
+    left: 50%;
+    transform: translate(-50%, -10%);
+  }
 `

@@ -1,12 +1,14 @@
 import { ChangeEvent } from 'react'
 import { Container } from './styles'
 import { useThemeSelection } from '../../context/ThemeContext/ThemeContext'
+import { useSearch } from '../../hooks/useSearch/useSearch'
 
 export function SearchBar() {
   const { toggleSelection } = useThemeSelection()
+  const { getSearchTerm } = useSearch()
 
   const handleSearch = (event: ChangeEvent<HTMLInputElement>) =>
-    console.log(event.target.value)
+    getSearchTerm(event.target.value)
 
   return (
     <Container

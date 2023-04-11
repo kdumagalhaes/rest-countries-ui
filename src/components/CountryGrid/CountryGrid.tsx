@@ -1,22 +1,29 @@
 import { Grid } from './styles'
-import api from '../../mocks/api/data.json'
 import { CountryCard } from '../CountryCard/CountryCard'
+import { useSearch } from '../../hooks/useSearch/useSearch'
+import { v4 } from 'uuid'
+import { TailSpin } from 'react-loader-spinner'
 
 export function CountryGrid() {
+  const { filteredCountriesList, isLoading } = useSearch()
   return (
     <Grid>
-      {api.map((country, index) => {
-        return (
-          <CountryCard
-            key={index}
-            name={country.name}
-            capital={country.capital ? country.capital : 'No capital'}
-            population={country.population}
-            flag={country.flag}
-            region={country.region}
-          />
-        )
-      })}
+      {!isLoading ? (
+        filteredCountriesList.map((country) => {
+          return (
+            <CountryCard
+              key={v4()}
+              name={country.name.common}
+              capital={country.capital ? country.capital : 'No capital'}
+              population={country.population}
+              flag={country.flags.svg}
+              region={country.region}
+            />
+          )
+        })
+      ) : (
+        <TailSpin color="hsl(200, 15%, 8%)" wrapperClass="loader" />
+      )}
     </Grid>
   )
 }
