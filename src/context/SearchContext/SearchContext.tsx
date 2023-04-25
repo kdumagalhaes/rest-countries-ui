@@ -2,21 +2,10 @@ import { ReactNode, createContext, useState } from 'react'
 import { useDebounce } from '../../hooks/useDebounce/useDebounce'
 import useSWR from 'swr'
 import { fetchCountriesList } from '../../utils/fetchCountriesList/fetchCountriesList'
+import { CountryModel } from '../../constants/constants'
 
 interface SearchProviderProps {
   children: ReactNode
-}
-
-interface CountryModel {
-  name: {
-    common: string
-  }
-  capital: string
-  flags: {
-    svg: string
-  }
-  region: string
-  population: number
 }
 
 interface SearchContextModel {

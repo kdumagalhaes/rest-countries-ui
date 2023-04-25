@@ -1,20 +1,12 @@
-import { useState } from 'react'
-import { useSearch } from '../useSearch/useSearch'
+import { useContext } from 'react'
+import { PaginationContext } from '../../context/PaginationContext/PaginationContext'
 
-export const usePagination = (countriesPerPage: number) => {
-  const [currentPage, setCurrentPage] = useState(1)
-  const { filteredCountriesList } = useSearch()
+export const usePagination = () => {
+  const context = useContext(PaginationContext)
 
-  const lastCountryIndex = currentPage * countriesPerPage
-  const firstCountryIndex = lastCountryIndex - countriesPerPage
-  const currentCountries = filteredCountriesList.slice(
-    firstCountryIndex,
-    lastCountryIndex,
-  )
-
-  return {
-    lastCountryIndex,
-    firstCountryIndex,
-    currentCountries,
+  if (context === undefined) {
+    throw new Error('usePagination must be used within PaginationContext.')
   }
+
+  return context
 }
