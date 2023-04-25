@@ -3,6 +3,7 @@ import { SearchBar } from '../../components/SearchBar/SearchBar'
 import { Row } from './styles'
 import { CountryGrid } from '../../components/CountryGrid/CountryGrid'
 import { SearchProvider } from '../../context/SearchContext/SearchContext'
+import { PaginationProvider } from '../../context/PaginationContext/PaginationContext'
 
 export function Home() {
   return (
@@ -11,7 +12,9 @@ export function Home() {
         <SearchBar />
         <FilterSelector />
       </Row>
-      <CountryGrid />
+      <PaginationProvider>
+        <CountryGrid />
+      </PaginationProvider>
     </SearchProvider>
   )
 }
